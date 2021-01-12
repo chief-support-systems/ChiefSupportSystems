@@ -26,7 +26,7 @@ jobs:
       - name: Deploy Config to API Gateway
         run: gcloud beta api-gateway api-configs create $(node -e "console.log(require('./package.json').version.replace(/[.]/g, '-'));") --api=chief-frontend --openapi-spec=api-spec-production.yml --project=chief-frontend
       - name: Set new Config Live
-        run: gcloud beta api-gateway gateways update public-api-gateway --api-config=$(node -e "console.log(require('./package.json').version.replace(/[.]/g, '-'));") --api=chief-frontend --project=chief-frontend --location=europe-west1
+        run: gcloud beta api-gateway gateways update chief-frontend --api-config=$(node -e "console.log(require('./package.json').version.replace(/[.]/g, '-'));") --api=chief-frontend --project=chief-frontend --location=europe-west1
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
