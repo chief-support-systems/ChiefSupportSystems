@@ -1,0 +1,22 @@
+{
+  "name": "chiefsupportsystems",
+  "version": "1.4.2",
+  "description": "",
+  "main": "generate-api-files.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tech3k/ChiefSupportSystems.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tech3k/ChiefSupportSystems/issues"
+  },
+  "homepage": "https://github.com/tech3k/ChiefSupportSystems#readme",
+  "dependencies": {
+    "replace-in-files": "^3.0.0"
+  }
+}

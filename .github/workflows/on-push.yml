@@ -1,0 +1,25 @@
+name: Generate Staging API
+on:
+  push:
+    branches:
+      - master
+jobs:
+  swagger:
+    name: Swagger
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Latest Version
+        uses: actions/checkout@v2
+      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        with:
+          service_account_key: ${{ secrets.RUN_SA_KEY }}
+      - name: Install gcloud Beta components
+        run: gcloud components install beta
+      - name: Install Base Dependencies
+        run: npm install
+      - name: Generate YAML Files
+        run: node generate-staging-api.js
+      - name: Deploy Config to API Gateway
+        run: gcloud beta api-gateway api-configs create $(node -e "console.log(require('./package.json').version.replace(/[.]/g, '-'));") --api=chief-develop --openapi-spec=api-spec-staging.yml --project=chief-develop
+      - name: Set new Config Live
+        run: gcloud beta api-gateway gateways update refundable-api-gateway-x --api-config=$(node -e "console.log(require('./package.json').version.replace(/[.]/g, '-'));") --api=chief-develop --project=chief-develop --location=europe-west1

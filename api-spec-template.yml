@@ -1,0 +1,34 @@
+---
+swagger: '2.0'
+info:
+  description: Chief Support Services API
+  version: APIVERSION
+  title: Chief Support Services API
+  contact:
+    name: Simon Skinner
+    email: ss@debtpanel.co.uk
+host: TEMPLATEHOST.chief.gi
+securityDefinitions:
+  api_key:
+    type: 'apiKey'
+    name: 'key'
+    in: 'query'
+tags:
+  - name: Search
+schemes:
+  - https
+produces:
+  - application/json
+paths:
+  /search:
+    get:
+      tags:
+        - Search
+      summary: Searches
+      operationId: search
+      responses:
+        '200':
+          description: Search Results
+      x-google-backend:
+        address: https://api-search-TEMPLATEURL-nw.a.run.app
+        path_translation: APPEND_PATH_TO_ADDRESS

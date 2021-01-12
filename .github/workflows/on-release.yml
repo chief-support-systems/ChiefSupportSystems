@@ -1,0 +1,34 @@
+name: Generate Production API
+on:
+  release:
+    types: [released]
+jobs:
+  swagger:
+    name: Swagger
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Latest Version
+        uses: actions/checkout@v2
+      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        with:
+          service_account_key: ${{ secrets.RUN_SA_KEY }}
+      - name: Install gcloud Beta components
+        run: gcloud components install beta
+      - name: Install Base Dependencies
+        run: npm install
+      - name: Generate YAML Files
+        run: node generate-production-api.js
+      - name: Generate Production Swagger UI
+        uses: Legion2/swagger-ui-action@v1
+        with:
+          output: swagger-ui
+          spec-file: api-spec-production.yml
+      - name: Deploy Config to API Gateway
+        run: gcloud beta api-gateway api-configs create $(node -e "console.log(require('./package.json').version.replace(/[.]/g, '-'));") --api=chief-frontend --openapi-spec=api-spec-production.yml --project=chief-frontend
+      - name: Set new Config Live
+        run: gcloud beta api-gateway gateways update public-api-gateway --api-config=$(node -e "console.log(require('./package.json').version.replace(/[.]/g, '-'));") --api=chief-frontend --project=chief-frontend --location=europe-west1
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: swagger-ui
