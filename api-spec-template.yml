@@ -14,21 +14,21 @@ securityDefinitions:
     name: 'key'
     in: 'query'
 tags:
-  - name: Search
+  - name: Old
 schemes:
   - https
 produces:
   - application/json
 paths:
-  /search:
+  /v1/*:
     get:
       tags:
-        - Search
-      summary: Searches
+        - Old
+      summary: Old V1 API
       operationId: search
       responses:
         '200':
-          description: Search Results
+          description: V1 API
       x-google-backend:
-        address: https://api-search-TEMPLATEURL-nw.a.run.app
+        address: https://staging.api.chief.gi
         path_translation: APPEND_PATH_TO_ADDRESS

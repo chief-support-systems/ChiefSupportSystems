@@ -42,7 +42,7 @@ const replaceAll = async (type, host, remoteUrl) => {
   });
 };
 
-Promise.all([replaceAll('production', 'api', 'k2mfaanpza')])
+Promise.all([replaceAll('production', 'api', 'yicvs4tngq')])
   .then((r) => {
     console.log('Done');
   })
