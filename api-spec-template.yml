@@ -21,7 +21,62 @@ produces:
   - application/json
 paths:
   /v1/*:
+    options:
+      tags:
+        - Old
+      summary: Old V1 API
+      operationId: search
+      responses:
+        '200':
+          description: V1 API
+      x-google-backend:
+        address: https://staging.api.chief.gi
+        path_translation: APPEND_PATH_TO_ADDRESS
+    post:
+      tags:
+        - Old
+      summary: Old V1 API
+      operationId: search
+      responses:
+        '200':
+          description: V1 API
+      x-google-backend:
+        address: https://staging.api.chief.gi
+        path_translation: APPEND_PATH_TO_ADDRESS
     get:
+      tags:
+        - Old
+      summary: Old V1 API
+      operationId: search
+      responses:
+        '200':
+          description: V1 API
+      x-google-backend:
+        address: https://staging.api.chief.gi
+        path_translation: APPEND_PATH_TO_ADDRESS
+    put:
+      tags:
+        - Old
+      summary: Old V1 API
+      operationId: search
+      responses:
+        '200':
+          description: V1 API
+      x-google-backend:
+        address: https://staging.api.chief.gi
+        path_translation: APPEND_PATH_TO_ADDRESS
+    patch:
+      tags:
+        - Old
+      summary: Old V1 API
+      operationId: search
+      responses:
+        '200':
+          description: V1 API
+      x-google-backend:
+        address: https://staging.api.chief.gi
+        path_translation: APPEND_PATH_TO_ADDRESS
+    delete:
       tags:
         - Old
       summary: Old V1 API
