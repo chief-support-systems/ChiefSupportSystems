@@ -25,7 +25,7 @@ paths:
       tags:
         - Old
       summary: Old V1 API
-      operationId: search
+      operationId: v1ApiOptions
       responses:
         '200':
           description: V1 API
@@ -36,7 +36,7 @@ paths:
       tags:
         - Old
       summary: Old V1 API
-      operationId: search
+      operationId: v1ApiPost
       responses:
         '200':
           description: V1 API
@@ -47,7 +47,7 @@ paths:
       tags:
         - Old
       summary: Old V1 API
-      operationId: search
+      operationId: v1ApiGet
       responses:
         '200':
           description: V1 API
@@ -58,7 +58,7 @@ paths:
       tags:
         - Old
       summary: Old V1 API
-      operationId: search
+      operationId: v1ApiPut
       responses:
         '200':
           description: V1 API
@@ -69,7 +69,7 @@ paths:
       tags:
         - Old
       summary: Old V1 API
-      operationId: search
+      operationId: v1ApiPatch
       responses:
         '200':
           description: V1 API
@@ -80,7 +80,7 @@ paths:
       tags:
         - Old
       summary: Old V1 API
-      operationId: search
+      operationId: v1ApiDelete
       responses:
         '200':
           description: V1 API
