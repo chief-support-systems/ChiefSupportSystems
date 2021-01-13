@@ -1,6 +1,6 @@
 {
   "name": "chiefsupportsystems",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "",
   "main": "generate-api-files.js",
   "scripts": {
