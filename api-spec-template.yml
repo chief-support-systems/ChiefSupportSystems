@@ -1,9 +1,9 @@
 ---
 swagger: '2.0'
 info:
-  description: Chief Support Services API
+  description: Chief Support Systems API
   version: APIVERSION
-  title: Chief Support Services API
+  title: Chief Support Systems API
   contact:
     name: Simon Skinner
     email: ss@debtpanel.co.uk
@@ -14,76 +14,30 @@ securityDefinitions:
     name: 'key'
     in: 'query'
 tags:
-  - name: Old
+  - name: Authentication
 schemes:
   - https
 produces:
   - application/json
 paths:
-  /v1/*:
+  /auth/login:
     options:
       tags:
-        - Old
-      summary: Old V1 API
-      operationId: v1ApiOptions
+        - Authentication
+      summary: Login User Options
+      operationId: authLoginOptions
       responses:
         '200':
-          description: V1 API
+          description: Login
       x-google-backend:
-        address: https://staging.api.chief.gi
-        path_translation: APPEND_PATH_TO_ADDRESS
+        address: https://staging.api.chief.gi/v1/auth/login
     post:
       tags:
-        - Old
-      summary: Old V1 API
-      operationId: v1ApiPost
+        - Authentication
+      summary: Login User
+      operationId: authLoginPost
       responses:
         '200':
           description: V1 API
       x-google-backend:
-        address: https://staging.api.chief.gi
-        path_translation: APPEND_PATH_TO_ADDRESS
-    get:
-      tags:
-        - Old
-      summary: Old V1 API
-      operationId: v1ApiGet
-      responses:
-        '200':
-          description: V1 API
-      x-google-backend:
-        address: https://staging.api.chief.gi
-        path_translation: APPEND_PATH_TO_ADDRESS
-    put:
-      tags:
-        - Old
-      summary: Old V1 API
-      operationId: v1ApiPut
-      responses:
-        '200':
-          description: V1 API
-      x-google-backend:
-        address: https://staging.api.chief.gi
-        path_translation: APPEND_PATH_TO_ADDRESS
-    patch:
-      tags:
-        - Old
-      summary: Old V1 API
-      operationId: v1ApiPatch
-      responses:
-        '200':
-          description: V1 API
-      x-google-backend:
-        address: https://staging.api.chief.gi
-        path_translation: APPEND_PATH_TO_ADDRESS
-    delete:
-      tags:
-        - Old
-      summary: Old V1 API
-      operationId: v1ApiDelete
-      responses:
-        '200':
-          description: V1 API
-      x-google-backend:
-        address: https://staging.api.chief.gi
-        path_translation: APPEND_PATH_TO_ADDRESS
+        address: https://staging.api.chief.gi/v1/auth/login
